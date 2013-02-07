@@ -19,10 +19,16 @@
 		timeinfo = month + "/" + day + "/" + year + " " + time;
 		
 		//add li element in the DOM
-		var messageList = document.createElement('li');
+		var messageEle = document.createElement('li');
 		var testNode = document.createTextNode(timeinfo + " - " + message);
-		messageList.appendChild(testNode);
-		document.getElementById('status').appendChild(messageList);
+		messageEle.appendChild(testNode);
+		list = document.getElementById('status')
+		
+		//Latest update message is displayed last, at the bottom
+		//list.appendChild(messageEle);
+		
+		//Latest update message is displayed first, at the top
+		list.insertBefore(messageEle, list.childNodes[0]);
 
 	}
 </script>
